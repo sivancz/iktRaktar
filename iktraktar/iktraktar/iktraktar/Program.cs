@@ -75,6 +75,8 @@ namespace iktraktar
 
             Console.WriteLine("Raktár rendszer - fejlesztési alap");
 
+            
+
 
         }
     }
