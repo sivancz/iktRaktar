@@ -76,7 +76,36 @@ namespace iktraktar
             Console.WriteLine("Raktár rendszer - fejlesztési alap");
 
 
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("=== Main Menu ===");
+                Console.WriteLine("8. Order Processing.");
+                Console.WriteLine("3. Exit");
+                Console.Write("Select an option: ");
+
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "3":
+                        return;
+                    case "8":
+                        Order order = new Order();
+                        order.AddItem(storage.FindById(2), 3);
+                        order.AddItem(storage.FindById(3), 1);
+
+                        Storage.OrderProcessor.ProcessOrder(order, storage);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
         }
     }
-
 }

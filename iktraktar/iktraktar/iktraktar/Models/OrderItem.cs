@@ -10,11 +10,18 @@ namespace iktraktar.Models
     {
         public Product Product { get; }
         public int Quantity { get; }
-
-        public OrderItem(Product product, int qty)
+        public OrderItem(Product product, int quantity)
         {
-            Product = product;
-            Quantity = qty;
+            Product = product ?? throw new ArgumentNullException(nameof(product));
+
+            if (quantity <= 0) throw new ArgumentOutOfRangeException("A mennyiség nagyobb kell legyen mint nulla!");
+
+            Quantity = quantity;
+
+        }
+        public int GetTotalPrice()
+        {
+            return Product.Quantity * Quantity;
         }
     }
 }
