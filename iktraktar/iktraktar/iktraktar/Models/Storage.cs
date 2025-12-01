@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using iktraktar.Models.Interfaces;
-using iktraktar.Models;
 
-namespace iktRaktar.Models
+namespace iktraktar.Models
 {
     internal class Storage : ISearchable<Product>
     {

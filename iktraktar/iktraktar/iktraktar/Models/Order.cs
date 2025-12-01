@@ -1,6 +1,4 @@
 ﻿using iktraktar.Models.Interfaces;
-using iktraktar.Models;
-using IktRaktár;
 using System;
 using System.Collections.Generic;
 using System.Linq;

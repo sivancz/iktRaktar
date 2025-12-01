@@ -1,5 +1,4 @@
 ﻿using iktraktar.Models;
-using iktRaktar.Models;
 using System;
 
 namespace iktraktar
