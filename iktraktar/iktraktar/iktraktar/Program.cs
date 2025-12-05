@@ -87,24 +87,23 @@ namespace iktraktar
 
                 string choice = Console.ReadLine();
 
-                switch (choice)
+                if (choice == "3")
                 {
-                    case "3":
-                        return;
-                    case "8":
-                        Order order = new Order();
-                        order.AddItem(storage.FindById(2), 3);
-                        order.AddItem(storage.FindById(3), 1);
-
-                        Storage.OrderProcessor.ProcessOrder(order, storage);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice. Try again.");
-                        break;
+                    break;
                 }
-
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
+                if(choice == "8")
+                {
+                    Order order = new Order();
+                    order.AddItem(storage.FindById(2), 3);
+                    order.AddItem(storage.FindById(3), 1);
+                    Storage.ProcessOrder(order, storage);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Try again.");
+                    break;
+                }
             }
         }
     }

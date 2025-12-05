@@ -27,19 +27,18 @@ namespace iktraktar.Models
             return items?.FirstOrDefault(p => p.Id == id);
         }
 
-        internal static class OrderProcessor
+        
+        public static bool ProcessOrder(Order order, Storage storage)
         {
-            public static bool ProcessOrder(Order order, Storage storage)
-            {
-                foreach (var item in order.Items)
-                {
+             foreach (var item in order.Items)
+             {
                     var product = storage.FindById(item.Product.Id);
                     if (product == null || product.Quantity < item.Quantity)
                     {
                         Console.WriteLine($"Hiba: Nincs elegendő készlet a(z) '{item.Product.Name}' termékből. Igényelt: {item.Quantity}, Elérhető: {product?.Quantity ?? 0}");
                         return false;
                     }
-                }
+             }
 
                 var levontKeszlet = new List<string>();
                 foreach (var item in order.Items)
@@ -54,8 +53,4 @@ namespace iktraktar.Models
                 return true;
             }
         }
-
     }
-
-
-}
