@@ -33,7 +33,14 @@ namespace iktraktar.Models
 
         public int GetTotalAmount()
         {
-            return Items.Sum(i => i.Product.Quantity * i.Quantity);
+            //return Items.Sum(i => i.Product.Quantity * i.Quantity);
+            int total = 0;
+            foreach (var i in Items)
+            {
+                total += i.Product.Quantity * i.Quantity;
+            }
+            return total;
+
         }
 
         public void SaveToFile(string path)
@@ -54,5 +61,7 @@ namespace iktraktar.Models
 
             File.WriteAllLines(path, lines);
         }
+
+
     }
 }
