@@ -1,4 +1,5 @@
 ﻿using iktraktar.Models.Interfaces;
+using IktRaktár.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace iktraktar.Models
 {
-    internal class Product : IIdentifiable, IStoreable
+    internal class Product : IIdentifiable, IStorable
     {
         public int Id { get; }
 
@@ -26,5 +27,6 @@ namespace iktraktar.Models
         {
             return $"#{Id} | {Name} | Készlet: {Quantity}";
         }
+
     }
 }

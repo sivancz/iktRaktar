@@ -22,6 +22,7 @@ namespace iktraktar
                 Console.WriteLine("5 - Készlet csökkentése");
                 Console.WriteLine("6 - Rendelés létrehozása termékek és mennyiségek hozzáadásával (csak létező, rendelkezésre álló termékekből)");
                 Console.WriteLine("7 - Rendelés összegzése, kiírás file-ba");
+                Console.WriteLine("8 - Rendelés feldolgozása");
                 Console.WriteLine("0 - Kilépés");
                 Console.Write("Válassz menüpontot: ");
 
@@ -135,6 +136,15 @@ namespace iktraktar
                         currentOrder.SaveToFile(fileName);
                         Console.WriteLine($"Rendelés mentve ide: {fileName}");
                     }
+                    break;
+                }
+
+                if (choice == "8")
+                {
+                    Order order = new Order();
+                    order.AddItem(storage.FindById(2), 3);
+                    order.AddItem(storage.FindById(3), 1);
+                    Storage.ProcessOrder(order, storage);
                     break;
                 }
                 Console.WriteLine("Ismeretlen menüpont.");
