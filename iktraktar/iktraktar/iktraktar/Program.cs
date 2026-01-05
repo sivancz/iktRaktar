@@ -23,6 +23,8 @@ namespace iktraktar
                 Console.WriteLine("6 - Rendelés létrehozása termékek és mennyiségek hozzáadásával (csak létező, rendelkezésre álló termékekből)");
                 Console.WriteLine("7 - Rendelés összegzése, kiírás file-ba");
                 Console.WriteLine("8 - Rendelés feldolgozása");
+                Console.WriteLine("9 - Raktár betöltés");
+                Console.WriteLine("10 - Raktár mentés");
                 Console.WriteLine("0 - Kilépés");
                 Console.Write("Válassz menüpontot: ");
 
@@ -148,6 +150,33 @@ namespace iktraktar
                     break;
                 }
                 Console.WriteLine("Ismeretlen menüpont.");
+
+
+                if (choice == "9")
+                {
+                    Console.Write("Add meg a fájl nevét (pl. raktar.json): ");
+                    string filePath = Console.ReadLine()!;
+                    List<Product> products = Export.LoadFromJson(filePath);
+                    foreach (var product in products)
+                    {
+                        storage.Add(product);
+                    }
+                    Console.WriteLine("✔ Raktár sikeresen betöltve.");
+                    continue;
+                }
+
+                if (choice == "10")
+                {
+                    Console.Write("Add meg a fájl nevét (pl. raktar.json): ");
+                    string filePath = Console.ReadLine()!;
+                    List<Product> products = Export.LoadFromJson(filePath);
+                    foreach (var product in products)
+                    {
+                        storage.Add(product);
+                    }
+                    Console.WriteLine("✔ Raktár sikeresen betöltve.");
+                    continue;
+                }
             }
         }
     }
